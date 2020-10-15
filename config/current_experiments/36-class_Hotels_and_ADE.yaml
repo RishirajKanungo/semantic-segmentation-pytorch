@@ -1,8 +1,8 @@
 DATASET:
   root_dataset: ""
-  list_train: "./data/past_experiments/training_hotels.odgt"
-  list_val: "./data/past_experiments/validation_hotels.odgt"
-  num_class: 38
+  list_train: "data/current_experiments/training_36-class_Hotels_and_ADE.odgt"
+  list_val: "data/current_experiments/validation_36-class_Hotels_and_ADE.odgt"
+  num_class: 36
   imgSizes: (300, 375, 450, 525, 600)
   imgMaxSize: 1000
   padding_constant: 8
@@ -18,10 +18,10 @@ TRAIN:
   batch_size_per_gpu: 2
   num_epoch: 20
   start_epoch: 0
-  epoch_iters: 5000
+  epoch_iters: 500
   optim: "SGD"
   lr_encoder: 0.02
-  lr_decoder: 0.02
+  lr_decoder: 0.02  
   lr_pow: 0.9
   beta1: 0.9
   weight_decay: 1e-4
@@ -37,6 +37,6 @@ VAL:
 
 TEST:
   checkpoint: "epoch_20.pth"
-  result: "./Results/Resnet50"
+  result: "./Results/exp1/"
 
-DIR: "ckpt/hotels-resnet50dilated-ppm_deepsup"
+DIR: "ckpt/current_experiments/experiment1"

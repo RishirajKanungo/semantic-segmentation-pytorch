@@ -150,27 +150,27 @@ def adjust_learning_rate(optimizers, cur_iter, cfg):
 
 def main(cfg, gpus):
     # Network Builders
-    # net_encoder = ModelBuilder.build_encoder(
-    #     arch=cfg.MODEL.arch_encoder.lower(),
-    #     fc_dim=cfg.MODEL.fc_dim,
-    #     weights=cfg.MODEL.weights_encoder)
-
     net_encoder = ModelBuilder.build_encoder(
         arch=cfg.MODEL.arch_encoder.lower(),
         fc_dim=cfg.MODEL.fc_dim,
-        weights="pretrained/encoder_epoch_20.pth")
+        weights=cfg.MODEL.weights_encoder)
 
-    # net_decoder = ModelBuilder.build_decoder(
-    #     arch=cfg.MODEL.arch_decoder.lower(),
+    # net_encoder = ModelBuilder.build_encoder(
+    #     arch=cfg.MODEL.arch_encoder.lower(),
     #     fc_dim=cfg.MODEL.fc_dim,
-    #     num_class=cfg.DATASET.num_class,
-    #     weights=cfg.MODEL.weights_decoder)
-    
+    #     weights="pretrained/encoder_epoch_20.pth")
+
     net_decoder = ModelBuilder.build_decoder(
         arch=cfg.MODEL.arch_decoder.lower(),
         fc_dim=cfg.MODEL.fc_dim,
         num_class=cfg.DATASET.num_class,
-        weights="pretrained/decoder_epoch_20.pth")
+        weights=cfg.MODEL.weights_decoder)
+    
+    # net_decoder = ModelBuilder.build_decoder(
+    #     arch=cfg.MODEL.arch_decoder.lower(),
+    #     fc_dim=cfg.MODEL.fc_dim,
+    #     num_class=cfg.DATASET.num_class,
+    #     weights="pretrained/decoder_epoch_20.pth")
 
     ct = 0
     # for child in net_encoder.children():
